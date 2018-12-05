@@ -354,8 +354,7 @@ def problem0c(circle, n, window):
         a = k * 2 * circle.radius
         new_circle = rg.Circle(rg.Point(x_val + a,circle.center.y), circle.radius)
         new_circle.attach_to(window)
-
-    window.render()
+        window.render(0.5)
 
 ###############################################################################
 # Our tests use the following to print error messages in red.
