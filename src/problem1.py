@@ -384,9 +384,13 @@ def problem1c(n):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 to 20 minutes.
     # -------------------------------------------------------------------------
-    total = 0
-    if k in range(n):
+    total = 1
+    for k in range(n):
         a = is_prime(n - k)
+        if a is True:
+            total = total * (n - k)
+    return sum_of_digits(total)
+
 
 ###############################################################################
 # Our tests use the following to print error messages in red.
