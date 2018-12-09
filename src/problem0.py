@@ -356,6 +356,8 @@ def problem0c(circle, n, window):
         new_circle.attach_to(window)
         window.render(0.5)
 
+
+
 ###############################################################################
 # Our tests use the following to print error messages in red.
 # Do NOT change it.  You do NOT have to do anything with it.
