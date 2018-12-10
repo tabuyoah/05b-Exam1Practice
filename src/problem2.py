@@ -199,8 +199,8 @@ def problem2b(rect, n, delta, win):
     rect.attach_to(win)
     for k in range(n):
         change = (k + 1) * delta
-        cor1 = rg.Point(rect.corner_1.x - change, rect.corner_2.y - change)
-        cor2 = rg.Point(rect.corner_2.x + change, rect.corner_2.y + change)
+        cor1 = rg.Point(rect._upper_left_corner.x - change, rect._upper_left_corner.y - change)
+        cor2 = rg.Point(rect._lower_right_corner.x + change, rect._lower_right_corner.y + change)
         rect2 = rg.Rectangle(cor1, cor2)
         rect2.attach_to(win)
         win.render()

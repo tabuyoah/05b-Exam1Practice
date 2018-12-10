@@ -3,8 +3,8 @@ PRACTICE Exam 1, problem 3.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Valerie Galluzzi, Mark Hays, Amanda Stouder, Aaron Wilkin,
-         their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues, and Alexander Tabuyo.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -104,6 +104,19 @@ def run_test_problem3a():
     # your choice), add 1 more test case of your own choosing.
     # -------------------------------------------------------------------------
 
+    # Window 4:
+    title = 'Problem 3a. Test 5: Start at (50, 50), 10 lines'
+    window4 = rg.RoseWindow(500, 500, title)
+
+    # Test 5 (it is on window 4):
+    point = rg.Point(50, 50)
+    expected = 218
+    answer = problem3a(window4, point, 10)
+    print()
+    print('Test 5 expected:', expected)
+    print('       actual:  ', answer)
+
+    window3.close_on_mouse_click()
 
 def problem3a(window, point, n):
     """
@@ -146,6 +159,28 @@ def problem3a(window, point, n):
     #    DIFFICULTY:      7 or 8
     #    TIME ESTIMATE:   20 to 35 minutes.
     # -------------------------------------------------------------------------
+    end = rg.Point(point.x, point.y + 50)
+    line = rg.Line(point, end)
+    line.thickness = 1
+    line.attach_to(window)
+    total = 0
+
+    for k in range(n):
+        a = (k + 1) * 2
+
+        if a > 13:
+            a = 13
+
+        pt = rg.Point(point.x + 20 * (k + 1), point.y + 10 * (k + 1))
+        pt2 = rg.Point(pt.x, pt.y + 50)
+
+        line2 = rg.Line(pt, pt2)
+        line2.thickness = a
+        line2.attach_to(window)
+
+        window.render()
+        total = total + a
+    return total
 
 
 def run_test_problem3b():
